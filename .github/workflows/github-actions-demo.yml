@@ -4,7 +4,11 @@ on:
   workflow_dispatch:
     inputs:
       name:
+        required: false
+        default: ''
       home:
+        required: false
+        default: ''
   
 jobs:
   Explore-GitHub-Actions:
@@ -21,6 +25,9 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "${{ inputs.name }}"
-      - run: echo "${{ inputs.home }}"
+      - name: Test Basic Features
+        run: echo "${{ inputs.name }} ${{ env.ENV_TEXTO }} ${{ inputs.home }} ${{ env.ENV_NUMERO }}"
+        env:
+            ENV_TEXTO: "vive en su"
+            ENV_NUMERO: 901
 
