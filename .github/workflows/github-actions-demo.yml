@@ -5,10 +5,10 @@ on:
     inputs:
       name:
         required: false
-        default: ''
+        default: 'La tortuga'
       home:
         required: false
-        default: ''
+        default: 'estanque'
   
 jobs:
   Explore-GitHub-Actions:
@@ -31,3 +31,9 @@ jobs:
             ENV_TEXTO: "vive en su"
             ENV_NUMERO: 901
 
+  Job-2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List files in the repository
+        run: |
+          ls -la
